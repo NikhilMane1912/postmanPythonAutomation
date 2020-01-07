@@ -42,7 +42,7 @@ class Ziner_automation:
         return jData    
     
     def get_model_def(self):
-        getModelDefUrl = 'https://newtonlab.zinier.com/model/getModelDef'
+        getModelDefUrl = 'https://orglab.zinier.com/model/getModelDef'
 
         apiHeader = {
         "Content-Type": "application/json",
@@ -127,7 +127,7 @@ class Ziner_automation:
         return query_data, primaryKey
 
     def get_model_data(self,query_data):
-        ReadQueryUrl = 'https://newtonlab.zinier.com/query/read'
+        ReadQueryUrl = 'https://orglab.zinier.com/query/read'
 
         apiHeader = {
         "Content-Type": "application/json",
@@ -180,7 +180,7 @@ class Ziner_automation:
 
     def update_destination_org_model_data(self,updateQuery_data):
         pass
-        # UpdateQueryUrl = 'https://newtonlab.zinier.com/model/update'
+        # UpdateQueryUrl = 'https://orglab.zinier.com/model/update'
 
         # apiHeader = {
         # "Content-Type": "application/json",
@@ -203,10 +203,10 @@ class Ziner_automation:
 if __name__ == "__main__":
     modelName = sys.argv[1]
     za = Ziner_automation(modelName)
-    jdata = za.login('newtonlab','fsmmdev')
+    jdata = za.login('orglab','orgname')
     model_def = za.get_model_def()
     q_data,p_key = za.read_model_query_data(model_def)
     model_data = za.get_model_data(q_data)
     result = za.update_model_query_data(model_data,p_key)
     # print(result)
-    # jdata = za.login('newtonlab','gamechanger')
+    # jdata = za.login('orglab','gamechanger')
